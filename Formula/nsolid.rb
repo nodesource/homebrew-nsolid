@@ -19,5 +19,9 @@ class Nsolid < Formula
 
   def test
     system "nsolid", "-vv"
+    system "node", "-vv"
+    system "npm", "-v"
+    system "npx", "-v"
+    system "nsolid-cli", "-v"
   end
 end
