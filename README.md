@@ -26,7 +26,7 @@ $ brew install nsolid-console
 
 #### Upgrading
 
-To upgrade your version of N|Solid, simply run the update command:
+To update your version of N|Solid, simply run the upgrade command:
 
 ```bash
 $ brew upgrade nsolid
