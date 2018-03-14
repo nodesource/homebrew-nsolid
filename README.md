@@ -18,6 +18,9 @@ Then simply install either the N|Solid Runtime or the N|Solid Console:
 
 ```bash
 $ brew install nsolid
+```
+
+```bash
 $ brew install nsolid-console
 ```
 
@@ -27,5 +30,8 @@ To upgrade your version of N|Solid, simply run the update command:
 
 ```bash
 $ brew upgrade nsolid
+```
+
+```bash
 $ brew upgrade nsolid-console
 ```
