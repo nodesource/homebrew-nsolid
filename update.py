@@ -54,10 +54,10 @@ for formula in formulae:
                 updatedLine = line.replace(previousVersion, nsolidVersion)
                 outFile.write(updatedLine)
             elif "sha256" in line and formula == "nsolid.rb":
-                line = "sha256 " + runtimeSha
+                line = "  sha256 \"" + runtimeSha + "\"\n"
                 outFile.write(line)
             elif "sha256" in line and formula == "nsolid-console.rb":
-                line = "sha256 " + consoleSha
+                line = "  sha256 \"" + consoleSha + "\"\n"
                 outFile.write(line)
             else:
                 outFile.write(line)
