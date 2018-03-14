@@ -9,12 +9,19 @@ class Nsolid < Formula
   depends_on :macos => :yosemite
 
   bottle :unneeded
+  
+  option "without-node", "Won't symlink node, npm, and npx in /usr/local/bin/ to the N|Solid versions"
 
   def install
     lib.install Dir["lib/*"]
     share.install Dir["share/*"]
     include.install Dir["include/*"]
-    bin.install Dir["bin/*"]
+    if build.without? "node"
+      bin.install Dir["bin/nsolid"]
+      bin.install Dir["bin/nsolid-cli"]
+    else
+      bin.install Dir["bin/*"]
+    end
   end
 
   def test
