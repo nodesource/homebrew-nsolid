@@ -9,7 +9,7 @@ class Nsolid < Formula
   depends_on :macos => :yosemite
 
   bottle :unneeded
-  
+
   option "without-node", "Won't symlink node, npm, and npx in /usr/local/bin/ to the N|Solid versions"
 
   def install
@@ -26,9 +26,6 @@ class Nsolid < Formula
 
   def test
     system "nsolid", "-vv"
-    system "node", "-vv"
-    system "npm", "-v"
-    system "npx", "-v"
     system "nsolid-cli", "-v"
   end
 end
