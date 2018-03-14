@@ -24,6 +24,8 @@ $ brew install nsolid
 $ brew install nsolid-console
 ```
 
+_If you don't want Homebrew to attempt to overwrite preexisting node, npm, and npx file in /usr/local/bin, add `--without-node` to your N|Solid install command._
+
 #### Upgrading
 
 To update your version of N|Solid, simply run the upgrade command:
