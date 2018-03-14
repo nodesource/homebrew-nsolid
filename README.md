@@ -35,3 +35,11 @@ $ brew upgrade nsolid
 ```bash
 $ brew upgrade nsolid-console
 ```
+
+---
+
+_If you have N|Solid installed via the Developer Bundle, please uninstall it before installing from Homebrew. You can uninstall by running:_
+
+```
+$ sudo /usr/local/nsolid/uninstall
+```
