@@ -38,6 +38,18 @@ $ brew upgrade nsolid
 $ brew upgrade nsolid-console
 ```
 
+#### Services
+
+You can use Homebrew Services to start and stop N|Solid Console:
+
+```bash
+$ brew services start nsolid-console
+```
+
+```bash
+$ brew services stop nsolid-console
+```
+
 ---
 
 _If you have N|Solid installed via the Developer Bundle, please uninstall it before installing from Homebrew. You can uninstall by running:_
