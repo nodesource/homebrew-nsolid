@@ -50,6 +50,15 @@ $ brew services start nsolid-console
 $ brew services stop nsolid-console
 ```
 
+#### Managing Versions
+
+You can switch between N|Solid versions by using the `switch` command:
+
+```bash
+$ brew list --versions nsolid
+$ brew switch nsolid <version>
+```
+
 ---
 
 _If you have N|Solid installed via the Developer Bundle, please uninstall it before installing from Homebrew. You can uninstall by running:_
