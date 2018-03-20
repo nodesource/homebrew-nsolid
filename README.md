@@ -6,27 +6,28 @@ Install [N|Solid](https://nodesource.com/products/nsolid) on macOS via [Homebrew
 
 ## Usage
 
-#### Install
+### Install
 
-First you need to add our tap:
+First add the `nsolid` tap:
 
 ```bash
 $ brew tap nodesource/nsolid
 ```
 
-Then simply install either the N|Solid Runtime or the N|Solid Console:
+The N|Solid Runtime and the N|Solid Console can be installed separately.
 
+To install the  N|Solid Runtime:
 ```bash
 $ brew install nsolid
 ```
-
+And to install the N|Solid Console:
 ```bash
 $ brew install nsolid-console
 ```
 
-_If you don't want Homebrew to attempt to overwrite preexisting `node`, `npm`, and `npx` files in `/usr/local/bin`, add `--without-node` to your N|Solid install command._
+>**Note:** If you don't want Homebrew to attempt to overwrite preexisting `node`, `npm`, and `npx` files in `/usr/local/bin`, add `--without-node` to your N|Solid install command.
 
-#### Upgrading
+### Upgrading
 
 To update your version of N|Solid, simply run the upgrade command:
 
@@ -38,9 +39,9 @@ $ brew upgrade nsolid
 $ brew upgrade nsolid-console
 ```
 
-#### Services
+### Services
 
-You can use Homebrew Services to start and stop N|Solid Console:
+You can use Homebrew [Services](https://github.com/Homebrew/homebrew-services) to start and stop N|Solid Console:
 
 ```bash
 $ brew services start nsolid-console
@@ -50,7 +51,7 @@ $ brew services start nsolid-console
 $ brew services stop nsolid-console
 ```
 
-#### Managing Versions
+### Managing Versions
 
 You can switch between N|Solid versions by using the `switch` command:
 
@@ -61,7 +62,7 @@ $ brew switch nsolid <version>
 
 ---
 
-_If you have N|Solid installed via the Developer Bundle, please uninstall it before installing from Homebrew. You can uninstall by running:_
+If you have N|Solid installed via the Developer Bundle, **please uninstall it before installing from Homebrew**. You can uninstall by running:
 
 ```
 $ sudo /usr/local/nsolid/uninstall
