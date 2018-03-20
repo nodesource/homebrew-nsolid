@@ -14,15 +14,16 @@ First add the `nsolid` tap:
 $ brew tap nodesource/nsolid
 ```
 
-The N|Solid Runtime and the N|Solid Console can be installed separately.
+The N|Solid Runtime can be installed with or without the N|Solid Console.
 
-To install the  N|Solid Runtime:
-```bash
-$ brew install nsolid
-```
-And to install the N|Solid Console:
+To install the N|Solid Runtime and the N|Solid Console together:
 ```bash
 $ brew install nsolid-console
+```
+
+And to install the  N|Solid Runtime by itself:
+```bash
+$ brew install nsolid
 ```
 
 >**Note:** If you don't want Homebrew to attempt to overwrite preexisting `node`, `npm`, and `npx` files in `/usr/local/bin`, add `--without-node` to your N|Solid install command.
