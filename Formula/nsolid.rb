@@ -1,9 +1,9 @@
 class Nsolid < Formula
   desc "N|Solid Runtime"
   homepage "https://nodesource.com/products/nsolid"
-  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/3.0.5/artifacts/bundles/nsolid-bundle-v3.0.5-darwin-x64/nsolid-v3.0.5-carbon-darwin-x64.tar.gz"
-  sha256 "40ad9d789612d8c4ca428f8809183302c9c4f3c763389c91105ae7ba4132d72a"
-  version "3.0.5"
+  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/3.1.0/artifacts/bundles/nsolid-bundle-v3.1.0-darwin-x64/nsolid-v3.1.0-carbon-darwin-x64.tar.gz"
+  sha256 "e7fa71a1388aa8cba0594c0e5391819f444c7cd69388dcc05942e35dcc11dbe9"
+  version "3.1.0"
 
   conflicts_with "node", :because => "N|Solid is a replacement for NodeJS"
   depends_on :macos => :yosemite
