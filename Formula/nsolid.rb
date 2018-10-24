@@ -1,7 +1,7 @@
 class Nsolid < Formula
   desc "N|Solid Runtime"
   homepage "https://nodesource.com/products/nsolid"
-  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/3.4.0/artifacts/bundles/nsolid-bundle-v3.4.0-darwin-x64/nsolid-v3.4.0-carbon-darwin-x64.tar.gz"
+  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/3.4.0/artifacts/bundles/nsolid-bundle-v3.4.0-darwin-x64/nsolid-v3.4.0-dubnium-darwin-x64.tar.gz"
   sha256 "a56b293b7cb76046d4671b4e047f7222b18c570b5b2f8ed1dc098fe4a2685217"
   version "3.4.0"
 
