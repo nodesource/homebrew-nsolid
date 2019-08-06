@@ -1,9 +1,9 @@
 class NsolidConsole < Formula
   desc "N|Solid Console"
   homepage "https://nodesource.com/products/nsolid"
-  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/3.4.9/artifacts/bundles/nsolid-bundle-v3.4.9-darwin-x64/nsolid-console-v3.4.9-darwin-x64.tar.gz"
-  sha256 "488715d4d17823a2a7b02c81c99fd2e050dbdc3f25ac1a5a4c41ab13ffbffd66"
-  version "3.4.9"
+  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/3.5.0/artifacts/bundles/nsolid-bundle-v3.5.0-darwin-x64/nsolid-console-v3.5.0-darwin-x64.tar.gz"
+  sha256 "2a26e0b3513db38fba206d09593194ad1ab371c378a69c25200141273e0b8958"
+  version "3.5.0"
 
   depends_on :macos => :yosemite
   depends_on "nsolid"
