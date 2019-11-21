@@ -20,7 +20,7 @@ print("\nRunning...\n")
 print("Downloading files to get SHA256 hash...\n")
 
 # Runtime
-url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + "-darwin-x64/nsolid-v" + nsolidVersion + "-dubnium-darwin-x64.tar.gz"
+url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + "-darwin-x64/nsolid-v" + nsolidVersion + "-erbium-darwin-x64.tar.gz"
 request = requests.get(url)
 open('./runtime.tgz', 'wb').write(request.content)
 sha256 = hashlib.sha256()
