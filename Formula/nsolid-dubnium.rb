@@ -1,12 +1,12 @@
 class Nsolid < Formula
-  desc "N|Solid Runtime (Erbium)"
+  desc "N|Solid Runtime Dubnium"
   homepage "https://nodesource.com/products/nsolid"
-  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/3.11.0/artifacts/bundles/nsolid-bundle-v3.11.0-erbium-x64/nsolid-v3.11.0-erbium-darwin-x64.tar.gz"
-  sha256 "to-be-updated-in-next-release"
+  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/3.11.0/artifacts/bundles/nsolid-bundle-v3.11.0-darwin-x64/nsolid-v3.11.0-dubnium-darwin-x64.tar.gz"
+  sha256 "4ee0f9a4b9c6dc72f217821062e7c62b405a2d17131caf44110f370fb87c5189"
   version "3.11.0"
 
   conflicts_with "node", :because => "N|Solid is a replacement for NodeJS"
-  conflicts_with "nsolid-dubnium", :because => "N|Solid Erbium is a replacement for N|Solid Dubnium"
+  conflicts_with "nsolid", :because => "N|Solid Dubnium is a replacement for N|Solid Erbium"
   depends_on :macos => :yosemite
 
   bottle :unneeded
