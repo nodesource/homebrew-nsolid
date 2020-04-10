@@ -28,12 +28,22 @@ $ brew install nsolid
 
 >**Note:** If you don't want Homebrew to attempt to overwrite preexisting `node`, `npm`, and `npx` files in `/usr/local/bin`, add `--without-node` to your N|Solid install command.
 
+The previous command install N|Solid Runtime based on the latest LTS version. If
+you want to install N|Solid Runtime with a diferent LTS, you have available:
+
+```bash
+$ brew install nsolid-dubnium
+```
+
+>**Note:** If you have previously installed `nsolid`, you'll need to `brew unlink nsolid` to let the installation pass and then run`brew link nsolid-dubnium`. You can follow the same process to unlink `nsolid-dubnium`, then link `nsolid` back.
+
 ### Upgrading
 
 To update your version of N|Solid, simply run the upgrade command:
 
 ```bash
 $ brew upgrade nsolid
+$ brew upgrade nsolid-dubnium
 ```
 
 ```bash
