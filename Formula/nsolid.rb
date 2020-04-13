@@ -1,9 +1,9 @@
 class Nsolid < Formula
   desc "N|Solid Runtime Erbium"
   homepage "https://nodesource.com/products/nsolid"
-  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/3.11.0/artifacts/bundles/nsolid-bundle-v3.11.0-darwin-x64/nsolid-v3.11.0-erbium-darwin-x64.tar.gz"
-  sha256 "c464b5a8edb155565cc785cb190ddae73f663bd9013d0795e98914722860e7e9"
-  version "3.11.0"
+  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/3.11.1/artifacts/bundles/nsolid-bundle-v3.11.1-darwin-x64/nsolid-v3.11.1-erbium-darwin-x64.tar.gz"
+  sha256 "b7aea532179fbc5351fd46d0b7aa4b68f6548a42fc18a17106bdf08c4a8f0c85"
+  version "3.11.1"
 
   conflicts_with "node", :because => "N|Solid is a replacement for NodeJS"
   conflicts_with "nsolid-dubnium", :because => "N|Solid Erbium is a replacement for N|Solid Dubnium"
