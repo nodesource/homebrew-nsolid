@@ -6,7 +6,8 @@ class NsolidDubnium < Formula
   version "3.11.1"
 
   conflicts_with "node", :because => "N|Solid is a replacement for NodeJS"
-  conflicts_with "nsolid", :because => "N|Solid Dubnium is a replacement for N|Solid Erbium"
+  conflicts_with "nsolid", :because => "N|Solid Dubnium is a replacement for N|Solid Fermium"
+  conflicts_with "nsolid-erbium", :because => "N|Solid Dubnium is a replacement for N|Solid Erbium"
   depends_on :macos => :yosemite
 
   bottle :unneeded
