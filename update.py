@@ -10,7 +10,7 @@ versionFile = open('Formula/nsolid.rb').read()
 previousVersion = re.search(r'version(.*)', versionFile).group(0).split("\"")[1]
 print("Previous Version: " + previousVersion)
 
-nsolidVersion = raw_input("\nNew N|Solid Version:\n")
+nsolidVersion = input("\nNew N|Solid Version:\n")
 isSemantic = re.match(r'^(\d+\.)?(\d+\.)?(\*|\d+)$', nsolidVersion)
 if not isSemantic:
     print("N|Solid Version doesn't seem to be a Semantic version - Example: 3.0.0")

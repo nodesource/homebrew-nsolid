@@ -1,9 +1,9 @@
 class NsolidDubnium < Formula
   desc "N|Solid Runtime Dubnium"
   homepage "https://nodesource.com/products/nsolid"
-  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/3.11.2/artifacts/bundles/nsolid-bundle-v3.11.2-darwin-x64/nsolid-v3.11.2-dubnium-darwin-x64.tar.gz"
-  sha256 "bed7423871f270223476bcd4a0c67bc98f23f9ad1199d0e96ae23a51ca125fa4"
-  version "3.11.2"
+  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/3.12.0/artifacts/bundles/nsolid-bundle-v3.12.0-darwin-x64/nsolid-v3.12.0-dubnium-darwin-x64.tar.gz"
+  sha256 "70b30d46269de9d8b8fefbba8fb751cd6fe2e0d01da229353e9ffe8b2437128a"
+  version "3.12.0"
 
   conflicts_with "node", :because => "N|Solid is a replacement for NodeJS"
   conflicts_with "nsolid", :because => "N|Solid Dubnium is a replacement for N|Solid Erbium"
