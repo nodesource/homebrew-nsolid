@@ -1,4 +1,4 @@
-class Nsolid < Formula
+class NsolidErbium < Formula
   desc "N|Solid Runtime Erbium"
   homepage "https://nodesource.com/products/nsolid"
   url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/4.2.0/artifacts/bundles/nsolid-bundle-v4.2.0-darwin-x64/nsolid-v4.2.0-erbium-darwin-x64.tar.gz"
