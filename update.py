@@ -19,18 +19,6 @@ print("\nRunning...\n")
 
 print("Downloading files to get SHA256 hash...\n")
 
-# Dubnium Runtime
-url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + "-darwin-x64/nsolid-v" + nsolidVersion + "-dubnium-darwin-x64.tar.gz"
-request = requests.get(url)
-open('./runtime.tgz', 'wb').write(request.content)
-sha256 = hashlib.sha256()
-with open('./runtime.tgz', 'rb') as f:
-    for block in iter(lambda: f.read(), b''):
-        sha256.update(block)
-runtimeShaDubnium = sha256.hexdigest()
-print("Runtime SHA is: " + runtimeShaDubnium)
-os.remove('./runtime.tgz')
-
 # Erbium Runtime
 url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + "-darwin-x64/nsolid-v" + nsolidVersion + "-erbium-darwin-x64.tar.gz"
 request = requests.get(url)
@@ -83,9 +71,6 @@ for formula in formulae:
                 outFile.write(line)
             elif "sha256" in line and formula == "nsolid-erbium.rb":
                 line = "  sha256 \"" + runtimeShaErbium + "\"\n"
-                outFile.write(line)
-            elif "sha256" in line and formula == "nsolid-dubnium.rb":
-                line = "  sha256 \"" + runtimeShaDubnium + "\"\n"
                 outFile.write(line)
             elif "sha256" in line and formula == "nsolid-console.rb":
                 line = "  sha256 \"" + consoleSha + "\"\n"
