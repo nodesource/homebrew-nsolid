@@ -32,8 +32,20 @@ print("Runtime SHA is: " + runtimeShaErbium)
 os.remove('./runtime.tgz')
 
 
-# Fermium Runtime (default)
+# Fermium Runtime
 url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + "-darwin-x64/nsolid-v" + nsolidVersion + "-fermium-darwin-x64.tar.gz"
+request = requests.get(url)
+open('./runtime.tgz', 'wb').write(request.content)
+sha256 = hashlib.sha256()
+with open('./runtime.tgz', 'rb') as f:
+    for block in iter(lambda: f.read(), b''):
+        sha256.update(block)
+runtimeShaFermium = sha256.hexdigest()
+print("Runtime SHA is: " + runtimeShaFermium)
+os.remove('./runtime.tgz')
+
+# Gallium Runtime (default)
+url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + "-darwin-x64/nsolid-v" + nsolidVersion + "-gallium-darwin-x64.tar.gz"
 request = requests.get(url)
 open('./runtime.tgz', 'wb').write(request.content)
 sha256 = hashlib.sha256()
@@ -68,6 +80,9 @@ for formula in formulae:
                 outFile.write(updatedLine)
             elif "sha256" in line and formula == "nsolid.rb":
                 line = "  sha256 \"" + runtimeSha + "\"\n"
+                outFile.write(line)
+            elif "sha256" in line and formula == "nsolid-fermium.rb":
+                line = "  sha256 \"" + runtimeShaFermium + "\"\n"
                 outFile.write(line)
             elif "sha256" in line and formula == "nsolid-erbium.rb":
                 line = "  sha256 \"" + runtimeShaErbium + "\"\n"
