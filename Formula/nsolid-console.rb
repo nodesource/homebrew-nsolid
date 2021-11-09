@@ -8,8 +8,6 @@ class NsolidConsole < Formula
   depends_on :macos => :yosemite
   depends_on "nsolid"
 
-  bottle :unneeded
-
   def install
     bin.install "scripts/nsolid-console"
     prefix.install Dir["*"]

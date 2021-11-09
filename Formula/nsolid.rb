@@ -10,8 +10,6 @@ class Nsolid < Formula
   conflicts_with "nsolid-fermium", :because => "N|Solid Gallium is a replacement for N|Solid Fermium"
   depends_on :macos => :yosemite
 
-  bottle :unneeded
-
   option "without-node", "Won't symlink node, npm, and npx in /usr/local/bin/ to the N|Solid versions"
 
   def install

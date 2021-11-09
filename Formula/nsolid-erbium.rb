@@ -10,8 +10,6 @@ class NsolidErbium < Formula
   conflicts_with "nsolid-fermium", :because => "N|Solid Fermium is a replacement for N|Solid Erbium"
   depends_on :macos => :yosemite
 
-  bottle :unneeded
-
   option "without-node", "Won't symlink node, npm, and npx in /usr/local/bin/ to the N|Solid versions"
 
   def install
