@@ -17,25 +17,27 @@ $ brew tap nodesource/nsolid
 The N|Solid Runtime can be installed with or without the N|Solid Console.
 
 To install the N|Solid Runtime and the N|Solid Console together:
+
 ```bash
 $ brew install nsolid-console
 ```
 
 And to install the  N|Solid Runtime by itself:
+
 ```bash
 $ brew install nsolid
 ```
 
->**Note:** If you don't want Homebrew to attempt to overwrite preexisting `node`, `npm`, and `npx` files in `/usr/local/bin`, add `--without-node` to your N|Solid install command.
+> **Note:** If you don't want Homebrew to attempt to overwrite preexisting `node` , `npm` , and `npx` files in `/usr/local/bin` , add `--without-node` to your N|Solid install command.
 
 The previous command install N|Solid Runtime based on the latest LTS version. If
 you want to install N|Solid Runtime with a diferent LTS, you have available:
 
 ```bash
-$ brew install nsolid-erbium
+$ brew install nsolid-fermium
 ```
 
->**Note:** If you have previously installed `nsolid`, you'll need to `brew unlink nsolid` to let the installation pass and then run`brew link nsolid-erbium`. You can follow the same process to unlink `nsolid-erbium`, then link `nsolid` back.
+> **Note:** If you have previously installed `nsolid` , you'll need to `brew unlink nsolid` to let the installation pass and then run `brew link nsolid-fermium` . You can follow the same process to unlink `nsolid-fermium` , then link `nsolid` back.
 
 ### Upgrading
 
@@ -43,7 +45,7 @@ To update your version of N|Solid, simply run the upgrade command:
 
 ```bash
 $ brew upgrade nsolid
-$ brew upgrade nsolid-erbium
+$ brew upgrade nsolid-fermium
 ```
 
 ```bash

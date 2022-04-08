@@ -6,7 +6,6 @@ class Nsolid < Formula
   version "4.7.2"
 
   conflicts_with "node", :because => "N|Solid is a replacement for NodeJS"
-  conflicts_with "nsolid-erbium", :because => "N|Solid Gallium is a replacement for N|Solid Erbium"
   conflicts_with "nsolid-fermium", :because => "N|Solid Gallium is a replacement for N|Solid Fermium"
   depends_on :macos => :yosemite
 

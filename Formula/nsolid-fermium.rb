@@ -7,7 +7,6 @@ class NsolidFermium < Formula
 
   conflicts_with "node", :because => "N|Solid is a replacement for NodeJS"
   conflicts_with "nsolid", :because => "N|Solid Gallium is a replacement for N|Solid Fermium"
-  conflicts_with "nsolid-erbium", :because => "N|Solid Fermium is a replacement for N|Solid Erbium"
   depends_on :macos => :yosemite
 
   option "without-node", "Won't symlink node, npm, and npx in /usr/local/bin/ to the N|Solid versions"

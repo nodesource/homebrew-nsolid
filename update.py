@@ -7,7 +7,8 @@ import os
 s3 = boto3.client('s3')
 
 versionFile = open('Formula/nsolid.rb').read()
-previousVersion = re.search(r'version(.*)', versionFile).group(0).split("\"")[1]
+previousVersion = re.search(
+    r'version(.*)', versionFile).group(0).split("\"")[1]
 print("Previous Version: " + previousVersion)
 
 nsolidVersion = input("\nNew N|Solid Version:\n")
@@ -19,21 +20,10 @@ print("\nRunning...\n")
 
 print("Downloading files to get SHA256 hash...\n")
 
-# Erbium Runtime
-url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + "-darwin-x64/nsolid-v" + nsolidVersion + "-erbium-darwin-x64.tar.gz"
-request = requests.get(url)
-open('./runtime.tgz', 'wb').write(request.content)
-sha256 = hashlib.sha256()
-with open('./runtime.tgz', 'rb') as f:
-    for block in iter(lambda: f.read(), b''):
-        sha256.update(block)
-runtimeShaErbium = sha256.hexdigest()
-print("Runtime SHA is: " + runtimeShaErbium)
-os.remove('./runtime.tgz')
-
-
 # Fermium Runtime
-url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + "-darwin-x64/nsolid-v" + nsolidVersion + "-fermium-darwin-x64.tar.gz"
+url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + \
+    "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + \
+    "-darwin-x64/nsolid-v" + nsolidVersion + "-fermium-darwin-x64.tar.gz"
 request = requests.get(url)
 open('./runtime.tgz', 'wb').write(request.content)
 sha256 = hashlib.sha256()
@@ -45,7 +35,9 @@ print("Runtime SHA is: " + runtimeShaFermium)
 os.remove('./runtime.tgz')
 
 # Gallium Runtime (default)
-url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + "-darwin-x64/nsolid-v" + nsolidVersion + "-gallium-darwin-x64.tar.gz"
+url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + \
+    "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + \
+    "-darwin-x64/nsolid-v" + nsolidVersion + "-gallium-darwin-x64.tar.gz"
 request = requests.get(url)
 open('./runtime.tgz', 'wb').write(request.content)
 sha256 = hashlib.sha256()
@@ -57,14 +49,16 @@ print("Runtime SHA is: " + runtimeSha)
 os.remove('./runtime.tgz')
 
 # Console
-url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + "-darwin-x64/nsolid-console-v" + nsolidVersion + "-darwin-x64.tar.gz"
+url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + \
+    "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + \
+    "-darwin-x64/nsolid-console-v" + nsolidVersion + "-darwin-x64.tar.gz"
 request = requests.get(url)
 open('./console.tgz', 'wb').write(request.content)
 sha256 = hashlib.sha256()
 with open('./console.tgz', 'rb') as f:
     for block in iter(lambda: f.read(), b''):
         sha256.update(block)
-consoleSha =sha256.hexdigest()
+consoleSha = sha256.hexdigest()
 print("Console SHA is: " + consoleSha)
 os.remove('./console.tgz')
 
@@ -83,9 +77,6 @@ for formula in formulae:
                 outFile.write(line)
             elif "sha256" in line and formula == "nsolid-fermium.rb":
                 line = "  sha256 \"" + runtimeShaFermium + "\"\n"
-                outFile.write(line)
-            elif "sha256" in line and formula == "nsolid-erbium.rb":
-                line = "  sha256 \"" + runtimeShaErbium + "\"\n"
                 outFile.write(line)
             elif "sha256" in line and formula == "nsolid-console.rb":
                 line = "  sha256 \"" + consoleSha + "\"\n"
