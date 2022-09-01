@@ -1,9 +1,9 @@
 class NsolidFermium < Formula
   desc "N|Solid Runtime Fermium"
   homepage "https://nodesource.com/products/nsolid"
-  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/4.7.4/artifacts/bundles/nsolid-bundle-v4.7.4-darwin-x64/nsolid-v4.7.4-fermium-darwin-x64.tar.gz"
-  sha256 "91107b8c450b225def0ec511375b365b22c1436ca5ff7bdfa9a9aabb1e5dd981"
-  version "4.7.4"
+  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/4.8.1/artifacts/bundles/nsolid-bundle-v4.8.1-darwin-x64/nsolid-v4.8.1-fermium-darwin-x64.tar.gz"
+  sha256 "69c0bed834f4a40891abc7b5319f19ab645f2c54b49e729e4269aae1de84aaa0"
+  version "4.8.1"
 
   conflicts_with "node", :because => "N|Solid is a replacement for NodeJS"
   conflicts_with "nsolid", :because => "N|Solid Gallium is a replacement for N|Solid Fermium"
