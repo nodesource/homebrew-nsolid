@@ -1,12 +1,12 @@
 class Nsolid < Formula
-  desc "N|Solid Runtime Hydrogen"
+  desc "N|Solid Runtime Gallium"
   homepage "https://nodesource.com/products/nsolid"
-  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/4.8.3/artifacts/bundles/nsolid-bundle-v4.8.3-darwin-x64/nsolid-v4.8.3-hydrogen-darwin-x64.tar.gz"
-  sha256 "24d61f4eceafde6ccb2950435ea513bf835b86a5550ecb5d073a71b608402e00"
+  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/4.8.3/artifacts/bundles/nsolid-bundle-v4.8.3-darwin-x64/nsolid-v4.8.3-gallium-darwin-x64.tar.gz"
+  sha256 "bcb671ab91d203b6409a62221dd0f398976c5829bef5b5ec1728ba6d2910f148"
   version "4.8.3"
 
   conflicts_with "node", :because => "N|Solid is a replacement for NodeJS"
-  conflicts_with "nsolid-gallium", :because => "N|Solid Hydrogen is a replacement for N|Solid Gallium"
+  conflicts_with "nsolid-fermium", :because => "N|Solid Gallium is a replacement for N|Solid Fermium"
   depends_on :macos => :yosemite
 
   option "without-node", "Won't symlink node, npm, and npx in /usr/local/bin/ to the N|Solid versions"

@@ -44,6 +44,20 @@ sha256 = hashlib.sha256()
 with open('./runtime.tgz', 'rb') as f:
     for block in iter(lambda: f.read(), b''):
         sha256.update(block)
+runtimeShaGallium = sha256.hexdigest()
+print("Runtime SHA is: " + runtimeShaGallium)
+os.remove('./runtime.tgz')
+
+# Hydrogen Runtime (default)
+url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + \
+    "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + \
+    "-darwin-x64/nsolid-v" + nsolidVersion + "-hydrogen-darwin-x64.tar.gz"
+request = requests.get(url)
+open('./runtime.tgz', 'wb').write(request.content)
+sha256 = hashlib.sha256()
+with open('./runtime.tgz', 'rb') as f:
+    for block in iter(lambda: f.read(), b''):
+        sha256.update(block)
 runtimeSha = sha256.hexdigest()
 print("Runtime SHA is: " + runtimeSha)
 os.remove('./runtime.tgz')
@@ -77,6 +91,9 @@ for formula in formulae:
                 outFile.write(line)
             elif "sha256" in line and formula == "nsolid-fermium.rb":
                 line = "  sha256 \"" + runtimeShaFermium + "\"\n"
+                outFile.write(line)
+            elif "sha256" in line and formula == "nsolid-gallium.rb":
+                line = "  sha256 \"" + runtimeShaGallium + "\"\n"
                 outFile.write(line)
             elif "sha256" in line and formula == "nsolid-console.rb":
                 line = "  sha256 \"" + consoleSha + "\"\n"
