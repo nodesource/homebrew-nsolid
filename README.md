@@ -34,10 +34,10 @@ The previous command install N|Solid Runtime based on the latest LTS version. If
 you want to install N|Solid Runtime with a diferent LTS, you have available:
 
 ```bash
-$ brew install nsolid-fermium
+$ brew install nsolid-hydrogen
 ```
 
-> **Note:** If you have previously installed `nsolid` , you'll need to `brew unlink nsolid` to let the installation pass and then run `brew link nsolid-fermium` . You can follow the same process to unlink `nsolid-fermium` , then link `nsolid` back.
+> **Note:** If you have previously installed `nsolid` , you'll need to `brew unlink nsolid` to let the installation pass and then run `brew link nsolid-hydrogen` . You can follow the same process to unlink `nsolid-hydrogen` , then link `nsolid` back.
 
 ### Upgrading
 
@@ -45,7 +45,7 @@ To update your version of N|Solid, simply run the upgrade command:
 
 ```bash
 $ brew upgrade nsolid
-$ brew upgrade nsolid-fermium
+$ brew upgrade nsolid-hydrogen
 ```
 
 ```bash
