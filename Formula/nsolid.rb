@@ -7,7 +7,7 @@ class Nsolid < Formula
 
   conflicts_with "node", :because => "N|Solid is a replacement for NodeJS"
   conflicts_with "nsolid-gallium", :because => "N|Solid Hydrogen is a replacement for N|Solid Gallium"
-  depends_on :macos => :yosemite
+  depends_on :macos => :el_capitan
 
   option "without-node", "Won't symlink node, npm, and npx in /usr/local/bin/ to the N|Solid versions"
 

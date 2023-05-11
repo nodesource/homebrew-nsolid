@@ -1,4 +1,4 @@
-class Nsolid < Formula
+class NsolidGallium < Formula
   desc "N|Solid Runtime Gallium"
   homepage "https://nodesource.com/products/nsolid"
   url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/4.9.3/artifacts/bundles/nsolid-bundle-v4.9.3-darwin-x64/nsolid-v4.9.3-gallium-darwin-x64.tar.gz"
