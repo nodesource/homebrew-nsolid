@@ -5,7 +5,7 @@ class NsolidConsole < Formula
   sha256 "72040d1e5efafc8484f67745a76d946046735c424262683951f17f2f6ce2a5b1"
   version "4.9.3"
 
-  depends_on :macos => :yosemite
+  depends_on :macos => :el_capitan
   depends_on "nsolid"
 
   def install
