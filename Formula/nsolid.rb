@@ -1,9 +1,9 @@
 class Nsolid < Formula
   desc "N|Solid Runtime Hydrogen"
   homepage "https://nodesource.com/products/nsolid"
-  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/4.10.1/artifacts/bundles/nsolid-bundle-v4.10.1-darwin-x64/nsolid-v4.10.1-hydrogen-darwin-x64.tar.gz"
-  sha256 "78c9f7276886ac6037b192670320749cd2c7236c470ecdcc07cb9cfe2f7dcfe2"
-  version "4.10.1"
+  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/4.10.2/artifacts/bundles/nsolid-bundle-v4.10.2-darwin-x64/nsolid-v4.10.2-hydrogen-darwin-x64.tar.gz"
+  sha256 "b8e94e940dc9147c57aacdeeb8e9567fa7d356067e41fe0027c895a53e64da54"
+  version "4.10.2"
 
   conflicts_with "node", :because => "N|Solid is a replacement for NodeJS"
   conflicts_with "nsolid-gallium", :because => "N|Solid Hydrogen is a replacement for N|Solid Gallium"
