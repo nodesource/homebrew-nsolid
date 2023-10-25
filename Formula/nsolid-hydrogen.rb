@@ -1,4 +1,4 @@
-class Nsolid < Formula
+class NsolidHydrogen < Formula
   desc "N|Solid Runtime Hydrogen"
   homepage "https://nodesource.com/products/nsolid"
   url "https://nodesource-rc-builds.s3.us-west-2.amazonaws.com/2023-10-24/18.18.2-ns4.9.5/artifacts/binaries/nsolid-v4.9.5-hydrogen-darwin-x64.tar.gz"
