@@ -50,9 +50,11 @@ print("\nRunning...\n")
 print(f"Identified codename: {codename}")
 
 formula_filename = f"Formula/nsolid-{codename}.rb"
+_, ns_version = nsolidVersion.split('-ns')
 
 print("Downloading files to get SHA256 hash...\n")
-url = f"https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/{nsolidVersion}/artifacts/bundles/nsolid-bundle-v{nsolidVersion}-darwin-x64/nsolid-v{nsolidVersion}-{codename}-darwin-x64.tar.gz"
+url = f"https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/{nsolidVersion}/artifacts/binaries/nsolid-v{ns_version}-{codename}-darwin-x64.tar.gz"
+print("Runtime URL is: " + url)
 runtimeSha = download_and_get_sha(url)
 print("Runtime SHA is: " + runtimeSha)
 

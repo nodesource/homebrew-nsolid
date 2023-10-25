@@ -1,8 +1,8 @@
 class NsolidIron < Formula
   desc "N|Solid Runtime Iron"
   homepage "https://nodesource.com/products/nsolid"
-  url "https://nodesource-rc-builds.s3.us-west-2.amazonaws.com/2023-10-24/18.18.2-ns4.9.5/artifacts/binaries/nsolid-v4.9.5-iron-darwin-x64.tar.gz"
-  sha256 "NUEVO_SHA256_PARA_IRON"
+  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.8.1-ns4.9.4/artifacts/binaries/nsolid-v4.9.4-iron-darwin-x64.tar.gz"
+  sha256 "25d49550b1e13b6ee91ca90f48bb4efd06aa04f392f6655fb4e5a93f1094f7b0"
 
   conflicts_with "node", because: "N|Solid replaces NodeJS"
   conflicts_with "nsolid-gallium", because: "N|Solid Iron replaces N|Solid Gallium"
