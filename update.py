@@ -2,69 +2,71 @@
 import hashlib
 import requests
 import re
-import boto3
+import sys
 import os
-s3 = boto3.client('s3')
 
-versionFile = open('Formula/nsolid.rb').read()
-previousVersion = re.search(
-    r'version(.*)', versionFile).group(0).split("\"")[1]
-print("Previous Version: " + previousVersion)
 
-nsolidVersion = input("\nNew N|Solid Version:\n")
-isSemantic = re.match(r'^(\d+\.)?(\d+\.)?(\*|\d+)$', nsolidVersion)
-if not isSemantic:
-    print("N|Solid Version doesn't seem to be a Semantic version - Example: 3.0.0")
+def download_and_get_sha(url):
+    request = requests.get(url)
+    open('./runtime.tgz', 'wb').write(request.content)
+    sha256 = hashlib.sha256()
+    with open('./runtime.tgz', 'rb') as f:
+        for block in iter(lambda: f.read(), b''):
+            sha256.update(block)
+    runtimeSha = sha256.hexdigest()
+    os.remove('./runtime.tgz')
+    return runtimeSha
+
+
+def display_help():
+    print("Usage: update_formula.py NodeVersion-nsolidVersion")
+    print("Example: update_formula.py 18.18.2-ns4.9.5")
+    print("This script updates the Homebrew formula for the given N|Solid version.")
+
+
+if len(sys.argv) != 2 or sys.argv[1] in ["-h", "--help"]:
+    display_help()
+    sys.exit(1)
+
+nsolidVersion = sys.argv[1]
+match = re.match(r'(\d+).\d+.\d+-ns\d+.\d+.\d+', nsolidVersion)
+if not match:
+    print("Incorrect N|Solid Version format. Expected format: NodeVersion-nsolidVersion (e.g. 18.18.2-ns4.9.5)")
     exit(1)
+
+node_version = int(match.group(1))
+codenames = {
+    18: "hydrogen",
+    20: "iron",
+    22: "jod"
+}
+
+codename = codenames.get(node_version)
+if not codename:
+    print("Unsupported Node version for determining codename.")
+    exit(1)
+
 print("\nRunning...\n")
+print(f"Identified codename: {codename}")
+
+formula_filename = f"Formula/nsolid-{codename}.rb"
+_, ns_version = nsolidVersion.split('-ns')
 
 print("Downloading files to get SHA256 hash...\n")
-
-# Hydrogen Runtime (default)
-url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + \
-    "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + \
-    "-darwin-x64/nsolid-v" + nsolidVersion + "-hydrogen-darwin-x64.tar.gz"
-request = requests.get(url)
-open('./runtime.tgz', 'wb').write(request.content)
-sha256 = hashlib.sha256()
-with open('./runtime.tgz', 'rb') as f:
-    for block in iter(lambda: f.read(), b''):
-        sha256.update(block)
-runtimeSha = sha256.hexdigest()
+url = f"https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/{nsolidVersion}/artifacts/binaries/nsolid-v{ns_version}-{codename}-darwin-x64.tar.gz"
+print("Runtime URL is: " + url)
+runtimeSha = download_and_get_sha(url)
 print("Runtime SHA is: " + runtimeSha)
-os.remove('./runtime.tgz')
-
-# Console
-url = "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/" + nsolidVersion + \
-    "/artifacts/bundles/nsolid-bundle-v" + nsolidVersion + \
-    "-darwin-x64/nsolid-console-v" + nsolidVersion + "-darwin-x64.tar.gz"
-request = requests.get(url)
-open('./console.tgz', 'wb').write(request.content)
-sha256 = hashlib.sha256()
-with open('./console.tgz', 'rb') as f:
-    for block in iter(lambda: f.read(), b''):
-        sha256.update(block)
-consoleSha = sha256.hexdigest()
-print("Console SHA is: " + consoleSha)
-os.remove('./console.tgz')
 
 print("\nUpdating Files...")
-formulae = os.listdir('./Formula')
-for formula in formulae:
-    with open("./Formula/" + formula, "r") as inFile:
-        lines = inFile.readlines()
-    with open("./Formula/" + formula, "w") as outFile:
-        for line in lines:
-            if previousVersion in line:
-                updatedLine = line.replace(previousVersion, nsolidVersion)
-                outFile.write(updatedLine)
-            elif "sha256" in line and formula == "nsolid.rb":
-                line = "  sha256 \"" + runtimeSha + "\"\n"
-                outFile.write(line)
-            elif "sha256" in line and formula == "nsolid-console.rb":
-                line = "  sha256 \"" + consoleSha + "\"\n"
-                outFile.write(line)
-            else:
-                outFile.write(line)
+with open(formula_filename, "r") as inFile:
+    lines = inFile.readlines()
+with open(formula_filename, "w") as outFile:
+    for line in lines:
+        if "url" in line:
+            line = f'  url "{url}"\n'
+        elif "sha256" in line:
+            line = f'  sha256 "{runtimeSha}"\n'
+        outFile.write(line)
 
 print("Update Complete")
