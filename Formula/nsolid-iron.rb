@@ -1,11 +1,10 @@
 class NsolidIron < Formula
   desc "N|Solid Runtime Iron"
   homepage "https://nodesource.com/products/nsolid"
-  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.9.0-ns5.0.0/artifacts/binaries/nsolid-v5.0.0-iron-darwin-x64.tar.gz"
-  sha256 "f46e85f9acadb46a54a3639fa6c3ff9a662b68701b0fb8cb7aebcdac1df46b5f"
+  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.10.0-ns5.0.1/artifacts/binaries/nsolid-v5.0.1-iron-darwin-x64.tar.gz"
+  sha256 "4a9e19eb14a1b0c707ed5c67105ba42f3ee367c70d5604c800aae50487290082"
 
   conflicts_with "node", because: "N|Solid replaces NodeJS"
-  conflicts_with "nsolid-gallium", because: "N|Solid Iron replaces N|Solid Gallium"
   conflicts_with "nsolid-hydrogen", because: "N|Solid Iron replaces N|Solid Hydrogen"
   depends_on macos: :el_capitan
 
