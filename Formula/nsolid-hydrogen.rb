@@ -1,8 +1,14 @@
 class NsolidHydrogen < Formula
   desc "N|Solid Runtime Hydrogen"
   homepage "https://nodesource.com/products/nsolid"
-  url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/18.19.0-ns5.0.1/artifacts/binaries/nsolid-v5.0.1-hydrogen-darwin-x64.tar.gz"
-  sha256 "e3562554e849a2e8c3456e3db010e73b621727ecdd7007942ddf71ab6dd58f36"
+
+  if Hardware::CPU.intel?
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/18.19.0-ns5.0.1/artifacts/binaries/nsolid-v5.0.1-hydrogen-darwin-x64.tar.gz"
+    sha256 "e3562554e849a2e8c3456e3db010e73b621727ecdd7007942ddf71ab6dd58f36"
+  elsif Hardware::CPU.arm?
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/18.19.0-ns5.0.1/artifacts/binaries/nsolid-v5.0.1-hydrogen-darwin-arm64.tar.gz"
+    sha256 "fea6f6afb49807a8f3b5fc44fa3beeb5c3898f6ddfa6b3a6224eea1c6a5e0f39"
+  end
 
   conflicts_with "node", because: "N|Solid replaces NodeJS"
   conflicts_with "nsolid-iron", because: "N|Solid Hydrogen replaces N|Solid Iron"
