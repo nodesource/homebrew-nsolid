@@ -6,6 +6,15 @@ import sys
 import os
 
 
+def display_help():
+    print("Usage: update_formula.py NodeVersion-nsolidVersion")
+    print("Example: update_formula.py 18.18.2-ns4.9.5")
+    print("This script updates the Homebrew formula for the given N|Solid version.")
+    print("Make sure to run this script with the correct version format as an argument.")
+    print("The script automatically handles downloading and SHA256 calculation for both x64 and arm64 architectures.")
+    print("It updates the formula with the new URLs and SHA256 hashes for the specified N|Solid version.")
+
+
 def download_and_get_sha(url):
     request = requests.get(url)
     open('./runtime.tgz', 'wb').write(request.content)
@@ -13,60 +22,56 @@ def download_and_get_sha(url):
     with open('./runtime.tgz', 'rb') as f:
         for block in iter(lambda: f.read(), b''):
             sha256.update(block)
-    runtimeSha = sha256.hexdigest()
+    runtime_sha = sha256.hexdigest()
     os.remove('./runtime.tgz')
-    return runtimeSha
+    return runtime_sha
 
 
-def display_help():
-    print("Usage: update_formula.py NodeVersion-nsolidVersion")
-    print("Example: update_formula.py 18.18.2-ns4.9.5")
-    print("This script updates the Homebrew formula for the given N|Solid version.")
+def update_formula(formula_filename, arch, runtime_url, runtime_sha):
+    url_pattern = re.compile(r'url "(.*?)"')
+    sha_pattern = re.compile(r'sha256 "(.*?)"')
+    updated = False
+    with open(formula_filename, "r") as file:
+        lines = file.readlines()
+
+    with open(formula_filename, "w") as file:
+        for line in lines:
+            if f'if Hardware::CPU.{arch}?' in line:
+                updated = True
+            if updated and 'url' in line:
+                line = re.sub(url_pattern, f'url "{runtime_url}"', line)
+            elif updated and 'sha256' in line:
+                line = re.sub(sha_pattern, f'sha256 "{runtime_sha}"', line)
+                updated = False
+            file.write(line)
 
 
-if len(sys.argv) != 2 or sys.argv[1] in ["-h", "--help"]:
-    display_help()
-    sys.exit(1)
+if __name__ == "__main__":
+    if len(sys.argv) != 2 or sys.argv[1] in ["-h", "--help"]:
+        display_help()
+        sys.exit(1)
 
-nsolidVersion = sys.argv[1]
-match = re.match(r'(\d+).\d+.\d+-ns\d+.\d+.\d+', nsolidVersion)
-if not match:
-    print("Incorrect N|Solid Version format. Expected format: NodeVersion-nsolidVersion (e.g. 18.18.2-ns4.9.5)")
-    exit(1)
+    nsolid_version = sys.argv[1]
+    match = re.match(r'(\d+)\.\d+\.\d+-ns(\d+\.\d+\.\d+)', nsolid_version)
+    if not match:
+        print("Incorrect N|Solid Version format. Expected format: NodeVersion-nsolidVersion (e.g. 18.18.2-ns4.9.5)")
+        exit(1)
 
-node_version = int(match.group(1))
-codenames = {
-    18: "hydrogen",
-    20: "iron",
-    22: "jod"
-}
+    node_version, ns_version = match.groups()
+    codenames = {18: "hydrogen", 20: "iron", 22: "jod"}
+    codename = codenames.get(int(node_version))
+    if not codename:
+        print("Unsupported Node version for determining codename.")
+        exit(1)
 
-codename = codenames.get(node_version)
-if not codename:
-    print("Unsupported Node version for determining codename.")
-    exit(1)
+    formula_filename = f"Formula/nsolid-{codename}.rb"
 
-print("\nRunning...\n")
-print(f"Identified codename: {codename}")
+    x64_url = f"https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/{nsolid_version}/artifacts/binaries/nsolid-v{ns_version}-{codename}-darwin-x64.tar.gz"
+    x64_sha = download_and_get_sha(x64_url)
+    update_formula(formula_filename, "intel", x64_url, x64_sha)
 
-formula_filename = f"Formula/nsolid-{codename}.rb"
-_, ns_version = nsolidVersion.split('-ns')
+    arm_url = f"https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/{nsolid_version}/artifacts/binaries/nsolid-v{ns_version}-{codename}-darwin-arm64.tar.gz"
+    arm_sha = download_and_get_sha(arm_url)
+    update_formula(formula_filename, "arm", arm_url, arm_sha)
 
-print("Downloading files to get SHA256 hash...\n")
-url = f"https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/{nsolidVersion}/artifacts/binaries/nsolid-v{ns_version}-{codename}-darwin-x64.tar.gz"
-print("Runtime URL is: " + url)
-runtimeSha = download_and_get_sha(url)
-print("Runtime SHA is: " + runtimeSha)
-
-print("\nUpdating Files...")
-with open(formula_filename, "r") as inFile:
-    lines = inFile.readlines()
-with open(formula_filename, "w") as outFile:
-    for line in lines:
-        if "url" in line:
-            line = f'  url "{url}"\n'
-        elif "sha256" in line:
-            line = f'  sha256 "{runtimeSha}"\n'
-        outFile.write(line)
-
-print("Update Complete")
+    print("Update Complete")
