@@ -3,11 +3,11 @@ class NsolidIron < Formula
   homepage "https://nodesource.com/products/nsolid"
 
   if Hardware::CPU.intel?
-    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.12.2-ns5.1.2/artifacts/binaries/nsolid-v5.1.2-iron-darwin-x64.tar.gz"
-    sha256 "243ba424087171895237b66ce93ef75924aa4dee54e80919c6eab428cc7f2314"
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.13.1-ns5.2.2/artifacts/binaries/nsolid-v5.2.2-iron-darwin-x64.tar.gz"
+    sha256 "eb7483d2e06f2e7f719df387ba3608e47cbf3fe32c463d605dea750feb6be486"
   elsif Hardware::CPU.arm?
-    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.12.2-ns5.1.2/artifacts/binaries/nsolid-v5.1.2-iron-darwin-arm64.tar.gz"
-    sha256 "de8bcb450164903bb3d542901f7566f52d14c9ede39b0eed59eb887be8dd1116"
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.13.1-ns5.2.2/artifacts/binaries/nsolid-v5.2.2-iron-darwin-arm64.tar.gz"
+    sha256 "2794ec3f764ca88b05a2cac6b95e56d366066e1fe4b2204e0fd35bd126f8691a"
   end
 
   conflicts_with "node", because: "N|Solid replaces NodeJS"
