@@ -12,6 +12,7 @@ class NsolidHydrogen < Formula
 
   conflicts_with "node", because: "N|Solid replaces NodeJS"
   conflicts_with "nsolid-iron", because: "N|Solid Hydrogen replaces N|Solid Iron"
+  conflicts_with "nsolid-jod", because: "N|Solid Hydrogen replaces N|Solid Jod"
   depends_on macos: :el_capitan
 
   option "without-node", "Avoids symlinking node, npm, and npx in /usr/local/bin/ to the N|Solid versions"
