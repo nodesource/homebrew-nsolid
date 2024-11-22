@@ -3,11 +3,11 @@ class NsolidHydrogen < Formula
   homepage "https://nodesource.com/products/nsolid"
 
   if Hardware::CPU.intel?
-    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/18.20.4-ns5.4.0/artifacts/binaries/nsolid-v5.4.0-hydrogen-darwin-x64.tar.gz"
-    sha256 "c5ce950362b55964451029edfb4583890d5fba4dc8d7c1018106d8681adf7075"
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/18.20.5-ns5.5.0/artifacts/binaries/nsolid-v5.5.0-hydrogen-darwin-x64.tar.gz"
+    sha256 "161c0021970c3db7cf1fd040cf0e4e85e6f5d3adbfcdea1bdb3f323b24b8d121"
   elsif Hardware::CPU.arm?
-    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/18.20.4-ns5.4.0/artifacts/binaries/nsolid-v5.4.0-hydrogen-darwin-arm64.tar.gz"
-    sha256 "670acefcec3ab18bdb28210fd7f08ccccf5088215681fc092619ff27c63812eb"
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/18.20.5-ns5.5.0/artifacts/binaries/nsolid-v5.5.0-hydrogen-darwin-arm64.tar.gz"
+    sha256 "6f4f40d1df40762bc4eb7af455ac0e6e7fb4ab90ece41b1824850654bb6e3415"
   end
 
   conflicts_with "node", because: "N|Solid replaces NodeJS"
