@@ -7,8 +7,8 @@ import os
 
 
 def display_help():
-    print("Usage: update_formula.py NodeVersion-nsolidVersion")
-    print("Example: update_formula.py 18.18.2-ns4.9.5")
+    print("Usage: update.py NodeVersion-nsolidVersion")
+    print("Example: update.py 18.18.2-ns4.9.5")
     print("This script updates the Homebrew formula for the given N|Solid version.")
     print("Make sure to run this script with the correct version format as an argument.")
     print("The script automatically handles downloading and SHA256 calculation for both x64 and arm64 architectures.")
@@ -16,12 +16,14 @@ def display_help():
 
 
 def download_and_get_sha(url):
-    request = requests.get(url)
-    open('./runtime.tgz', 'wb').write(request.content)
+    response = requests.get(url, stream=True)
+    response.raise_for_status()
     sha256 = hashlib.sha256()
-    with open('./runtime.tgz', 'rb') as f:
-        for block in iter(lambda: f.read(), b''):
-            sha256.update(block)
+    with open('./runtime.tgz', 'wb') as f:
+        for chunk in response.iter_content(chunk_size=8192):
+            if chunk:
+                f.write(chunk)
+                sha256.update(chunk)
     runtime_sha = sha256.hexdigest()
     os.remove('./runtime.tgz')
     return runtime_sha
