@@ -14,18 +14,24 @@ First, add the `nsolid` tap:
 brew tap nodesource/nsolid
 ```
 
-You can install the N|Solid Runtime in its `hydrogen` or `iron` variants:
+You can install the N|Solid Runtime in its `Jod`, `iron`, `hydrogen` variants:
+
+To install the `jod` version of N|Solid Runtime:
+
+```bash
+brew install nsolid-jod
+```
+
+To install the `iron` version of N|Solid Runtime:
+
+```bash
+brew install nsolid-iron
+```
 
 To install the `hydrogen` version of N|Solid Runtime:
 
 ```bash
 brew install nsolid-hydrogen
-```
-
-For the `iron` version:
-
-```bash
-brew install nsolid-iron
 ```
 
 If you simply want to install N|Solid without specifying a variant, use:
@@ -40,24 +46,30 @@ To set `nsolid` to be an alias of a specific version (e.g., `nsolid-hydrogen`):
 ln -s ../Formula/nsolid-hydrogen.rb Aliases/nsolid
 ```
 
-> **Note:** If you previously installed `nsolid`, you'll need to `brew unlink nsolid` to allow the installation, and then run `brew link nsolid-hydrogen`. You can follow the same process to unlink `nsolid-hydrogen` and then link `nsolid` back.
+> **Note:** If you previously installed `nsolid`, you'll need to `brew unlink nsolid` to allow the installation, and then run `brew link nsolid-jod`. You can follow the same process to unlink `nsolid-jod` and then link `nsolid` back.
 
 > **Note:** If you don't want Homebrew to attempt to overwrite preexisting `node`, `npm`, and `npx` files in `/usr/local/bin`, add `--without-node` to your N|Solid install command.
 
-To set `nsolid` to alias a specific variant, simply change the symlink creation command. For instance, if you want `nsolid` to point to the `iron` variant, use `nsolid-iron.rb` in the symlink command.
+To set `nsolid` to alias a specific variant, simply change the symlink creation command. For instance, if you want `nsolid` to point to the `jod` variant, use `nsolid-jod.rb` in the symlink command.
 
 ### Upgrading
 
 To update your version of N|Solid, simply run the upgrade command:
 
 ```bash
-brew upgrade nsolid-hydrogen
+brew upgrade nsolid-jod
 ```
 
 or
 
 ```bash
 brew upgrade nsolid-iron
+```
+
+or
+
+```bash
+brew upgrade nsolid-hydrogen
 ```
 
 ### Managing Versions
