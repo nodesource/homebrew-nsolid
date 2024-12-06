@@ -4,10 +4,10 @@ class NsolidIron < Formula
 
   if Hardware::CPU.intel?
     url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.18.1-ns5.5.0/artifacts/binaries/nsolid-v5.5.0-iron-darwin-x64.tar.gz"
-    sha256 "f41dd017e5edc72a53285594b82599943eab672822d1dc33f5a3b26369c80c84"
+    sha256 "3c16684e6ae9a6b54d689552e54aea28e0f0a9a8168b9ed5f2913a80926a9d59"
   elsif Hardware::CPU.arm?
     url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.18.1-ns5.5.0/artifacts/binaries/nsolid-v5.5.0-iron-darwin-arm64.tar.gz"
-    sha256 "b66594a73d270f707704e14f284f3620b1e4aed5ee123f0bc406ac2201ff9488"
+    sha256 "2ec871bf26ce67d8856ead489a596e5d5914bfd5f195cf33fc3c7fc153c6014d"
   end
 
   conflicts_with "node", because: "N|Solid replaces NodeJS"
