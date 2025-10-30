@@ -8,11 +8,15 @@ class NsolidIron < Formula
   elsif Hardware::CPU.arm?
     url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.19.5-ns6.0.2/artifacts/binaries/nsolid-v6.0.2-iron-darwin-arm64.tar.gz"
     sha256 "00bb3d4dd522e910c1e3af8a2d60ec990c5fdfd3820f372169884c1ec50e1ce9"
+  elsif Hardware::CPU.arm?
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.19.5-ns6.0.2/artifacts/binaries/nsolid-v6.0.2-iron-darwin-arm64.tar.gz"
+    sha256 "00bb3d4dd522e910c1e3af8a2d60ec990c5fdfd3820f372169884c1ec50e1ce9"
   end
 
   conflicts_with "node", because: "N|Solid replaces NodeJS"
   conflicts_with "nsolid-hydrogen", because: "N|Solid Iron replaces N|Solid Hydrogen"
-  conflicts_with "nsolid-jod", because: "N|Solid Iron replaces N|Solid Jod"
+  conflicts_with "nsolid-jod", because: "N|Solid Jod replaces N|Solid Iron"
+  conflicts_with "nsolid-krypton", because: "N|Solid Krypton replaces N|Solid Iron"
   depends_on macos: :el_capitan
 
   option "without-node", "Avoids symlinking node, npm, and npx in /usr/local/bin/ to the N|Solid versions"
