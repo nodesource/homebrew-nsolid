@@ -4,10 +4,10 @@ class NsolidKrypton < Formula
 
   if Hardware::CPU.intel?
     url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/24.11.0-ns6.0.2/artifacts/binaries/nsolid-v6.0.2-krypton-darwin-x64.tar.gz"
-    sha256 ""
+    sha256 "7e5b3e3524b2b2393ae9a107b22cc24370496c103bb208b0f52c7feba82715d9"
   elsif Hardware::CPU.arm?
     url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/24.11.0-ns6.0.2/artifacts/binaries/nsolid-v6.0.2-krypton-darwin-arm64.tar.gz"
-    sha256 ""
+    sha256 "d2cb2a76ec9663f6d52d01c345899848c1fb44e003560b5eb2d9da90b75282fa"
   end
 
   conflicts_with "node", because: "N|Solid replaces NodeJS"
