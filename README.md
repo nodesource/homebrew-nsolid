@@ -14,7 +14,7 @@ First, add the `nsolid` tap:
 brew tap nodesource/nsolid
 ```
 
-You can install the N|Solid Runtime in its `Jod`, `iron`, `hydrogen` variants:
+You can install the N|Solid Runtime in its `Jod`, `iron`, `krypton` variants:
 
 To install the `jod` version of N|Solid Runtime:
 
@@ -34,6 +34,12 @@ To install the `hydrogen` version of N|Solid Runtime:
 brew install nsolid-hydrogen
 ```
 
+To install the `krypton` version of N|Solid Runtime:
+
+```bash
+brew install nsolid-krypton
+```
+
 If you simply want to install N|Solid without specifying a variant, use:
 
 ```bash
@@ -43,7 +49,7 @@ brew install nsolid
 To set `nsolid` to be an alias of a specific version (e.g., `nsolid-hydrogen`):
 
 ```bash
-ln -s ../Formula/nsolid-hydrogen.rb Aliases/nsolid
+ln -s ../Formula/nsolid-krypton.rb Aliases/nsolid
 ```
 
 > **Note:** If you previously installed `nsolid`, you'll need to `brew unlink nsolid` to allow the installation, and then run `brew link nsolid-jod`. You can follow the same process to unlink `nsolid-jod` and then link `nsolid` back.
@@ -70,6 +76,12 @@ or
 
 ```bash
 brew upgrade nsolid-hydrogen
+```
+
+or
+
+```bash
+brew upgrade nsolid-krypton
 ```
 
 ### Managing Versions
