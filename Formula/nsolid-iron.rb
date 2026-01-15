@@ -3,14 +3,14 @@ class NsolidIron < Formula
   homepage "https://nodesource.com/products/nsolid"
 
   if Hardware::CPU.intel?
-    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.19.6-ns6.1.1/artifacts/binaries/nsolid-v6.1.1-iron-darwin-x64.tar.gz"
-    sha256 "3f8cd69b6d2e848350bcd3128165e0d1f53b25e0dfae3185b89cc8f504bccf07"
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.20.0-ns6.2.0/artifacts/binaries/nsolid-v6.2.0-iron-darwin-x64.tar.gz"
+    sha256 "a6c121268ca256ee248556f327735c861b99f431da0781ca94f91099509f9f62"
   elsif Hardware::CPU.arm?
-    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.19.6-ns6.1.1/artifacts/binaries/nsolid-v6.1.1-iron-darwin-arm64.tar.gz"
-    sha256 "4b67d677d7a72b3d40fa0f731bc9a0845e89eb7102843045836749d82b7447b3"
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.20.0-ns6.2.0/artifacts/binaries/nsolid-v6.2.0-iron-darwin-arm64.tar.gz"
+    sha256 "0f3a4b0466958a3f3fe49d52fc4662058e40472a1e1b8ca1e419e78f59616e1c"
   elsif Hardware::CPU.arm?
-    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.19.6-ns6.1.1/artifacts/binaries/nsolid-v6.1.1-iron-darwin-arm64.tar.gz"
-    sha256 "4b67d677d7a72b3d40fa0f731bc9a0845e89eb7102843045836749d82b7447b3"
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/20.20.0-ns6.2.0/artifacts/binaries/nsolid-v6.2.0-iron-darwin-arm64.tar.gz"
+    sha256 "0f3a4b0466958a3f3fe49d52fc4662058e40472a1e1b8ca1e419e78f59616e1c"
   end
 
   conflicts_with "node", because: "N|Solid replaces NodeJS"
