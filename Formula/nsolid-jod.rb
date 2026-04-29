@@ -3,11 +3,11 @@ class NsolidJod < Formula
   homepage "https://nodesource.com/products/nsolid"
 
   if Hardware::CPU.intel?
-    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/22.22.2-ns6.2.2/artifacts/binaries/nsolid-v6.2.2-jod-darwin-x64.tar.gz"
-    sha256 "4fa5504e18ead84c3db2bccc443d140c0f07f784dee3b6ee7dd5e61fd2c87902"
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/22.22.2-ns6.2.3/artifacts/binaries/nsolid-v6.2.3-jod-darwin-x64.tar.gz"
+    sha256 "311295609776bff683198b046ddb9cdd05e381b95bac5a57ae6975c0ea1432d5"
   elsif Hardware::CPU.arm?
-    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/22.22.2-ns6.2.2/artifacts/binaries/nsolid-v6.2.2-jod-darwin-arm64.tar.gz"
-    sha256 "d4c2e5588a9c5b395e68fdf346040e6b84de79c65a93fd4cd92594d2882e64a4"
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/22.22.2-ns6.2.3/artifacts/binaries/nsolid-v6.2.3-jod-darwin-arm64.tar.gz"
+    sha256 "1001e8835022759d60d0ac92c08eeb4dfee6f3d8f125e5910cc8c55907be834b"
   end
 
   conflicts_with "node", because: "N|Solid replaces NodeJS"
