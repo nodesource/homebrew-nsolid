@@ -17,6 +17,7 @@ class NsolidIron < Formula
   conflicts_with "nsolid-hydrogen", because: "N|Solid Iron replaces N|Solid Hydrogen"
   conflicts_with "nsolid-jod", because: "N|Solid Jod replaces N|Solid Iron"
   conflicts_with "nsolid-krypton", because: "N|Solid Krypton replaces N|Solid Iron"
+  conflicts_with "nsolid-lithium", because: "N|Solid Lithium replaces N|Solid Iron"
 
   option "without-node", "Avoids symlinking node, npm, and npx in /usr/local/bin/ to the N|Solid versions"
 
