@@ -60,7 +60,7 @@ if __name__ == "__main__":
         exit(1)
 
     node_version, ns_version = match.groups()
-    codenames = {18: "hydrogen", 20: "iron", 22: "jod", 24: "krypton"}
+    codenames = {18: "hydrogen", 20: "iron", 22: "jod", 24: "krypton", 26: "lithium"}
     codename = codenames.get(int(node_version))
     if not codename:
         print("Unsupported Node version for determining codename.")
