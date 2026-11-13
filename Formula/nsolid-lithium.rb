@@ -3,11 +3,11 @@ class NsolidLithium < Formula
   homepage "https://nodesource.com/products/nsolid"
 
   if Hardware::CPU.intel?
-    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/26.13.0-ns6.3.9/artifacts/binaries/nsolid-v6.3.9-lithium-darwin-x64.tar.gz"
-    sha256 "30ae5897b69dea79349b7464c1a5f4f2e8bf61cd539416c17b42cd566442e0c7"
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/26.13.1-ns6.3.10/artifacts/binaries/nsolid-v6.3.10-lithium-darwin-x64.tar.gz"
+    sha256 "b6e2e39d91ec39040897db6a8c768a74dc9a5bc8757eec84d18c38edf406c568"
   elsif Hardware::CPU.arm?
-    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/26.13.0-ns6.3.9/artifacts/binaries/nsolid-v6.3.9-lithium-darwin-arm64.tar.gz"
-    sha256 "b18698aea2d90bd71aeef8d6368d44298a1d090a91b4cd6c306402b359ed185c"
+    url "https://s3-us-west-2.amazonaws.com/nodesource-public-downloads/26.13.1-ns6.3.10/artifacts/binaries/nsolid-v6.3.10-lithium-darwin-arm64.tar.gz"
+    sha256 "bbe335aaf2ac32d47b2b3ee0dbffe299efce12981270dc8f53e00dc7f13a109e"
   end
 
   conflicts_with "node", because: "N|Solid replaces NodeJS"
